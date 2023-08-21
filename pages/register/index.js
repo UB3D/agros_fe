@@ -1,53 +1,37 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Cerita from "@/components/Cerita/Cerita";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import Link from "next/link";
-// import useRegisterUser from "@/store/useRegisterUser";
-// import { useState } from "react";
+import useRegisterUser from "@/store/useRegisterUser";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import useStore from "@/store/store";
-import { useEffect, useState } from "react";
-// import bcrypt from "bcrypt";
 
 const index = () => {
-  const users = useStore((state) => state.users);
-  const fetchUsersById = useStore((state) => state.fetchUsersById);
-  const loading = useStore((state) => state.loading);
-  const editUser = useStore((state) => state.editUser);
+  const register = useRegisterUser((state) => state.register);
+  const loading = useRegisterUser((state) => state.loading);
 
-  console.log(users);
-  // const pw = bcrypt.hashSync(users.password);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [kota, setKota] = useState("");
-  const role = users.role;
-  const password = users.password;
+  const [role, setRole] = useState("");
 
-  const id = users.id;
-  const router = useRouter();
-
-  // const token =
-  //   typeof window !== "undefined" ? localStorage.getItem("token") : null;
-  // console.log(token);
-  // const decode = typeof window !== "undefined" ? jwtDecode(token) : null;
-  // console.log(decode);
-  // // console.log(decode.userId);
-  // const userId = typeof window !== "undefined" ? decode.userId : null;
-  useEffect(() => {
-    fetchUsersById();
-  }, []);
+  const { push } = useRouter();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    editUser({ id, name, email, password, kota, role });
+    register({ name, email, password, kota, role });
 
-    setName("");
     setEmail("");
+    setName("");
+    setPassword("");
     setKota("");
-    router.reload();
+    setRole("");
+    push("/login");
   };
 
   if (loading) {
@@ -63,8 +47,10 @@ const index = () => {
       <div className="container mb-5">
         <div className="row">
           <div className="col-lg-12 mb-3">
-            <h1 className="fw-bold">Perbarui Profil</h1>
-            <p className="mt-5 ">Nama Lengkap Kerabat </p>
+            <h1 className="fw-bold">Daftar Sekarang</h1>
+            <p className="mt-5 ">
+              Mari bergabung bersama Kerabat AGROS Indonesia lainnya.
+            </p>
           </div>
           <div className="col-lg-6 mb-3">
             <label for="exampleInputPassword1" className="form-label fw-bold">
@@ -73,7 +59,6 @@ const index = () => {
             <input
               type="text"
               className="form-control"
-              defaultValue={users.name}
               id="exampleInputPassword1"
               onChange={(e) => setName(e.target.value)}
             ></input>
@@ -85,7 +70,6 @@ const index = () => {
             <input
               type="text"
               className="form-control"
-              defaultValue={users.kota}
               id="exampleInputPassword1"
               onChange={(e) => setKota(e.target.value)}
             ></input>
@@ -97,20 +81,50 @@ const index = () => {
             <input
               type="email"
               className="form-control"
-              defaultValue={users.email}
               id="exampleInputPassword1"
               onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
-
+          <div className="col-lg-6 mb-3">
+            <label for="exampleInputPassword1" className="form-label fw-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
+          <div className="col-lg-12 mb-3 ">
+            <label for="exampleInputPassword1" className="form-label fw-bold">
+              Role
+            </label>
+            <input
+              type="text"
+              className="form-control w-50"
+              id="exampleInputPassword1 "
+              placeholder="contoh: admin/user"
+              onChange={(e) => setRole(e.target.value)}
+            ></input>
+          </div>
           <div className="col-lg-12 mb-3 mt-3">
             <a
               onClick={handleOnSubmit}
               className="btn btn-success w-50 text-start fw-bold fs-4"
             >
               {" "}
-              Edit Profile
+              Gabung Sekarang
             </a>
+            <p className="mt-3 ">
+              Sudah Memiliki Akun ?{" "}
+              <Link
+                href="/login"
+                style={{ textDecoration: "none", color: "#459467" }}
+              >
+                Masuk Sekarang
+              </Link>
+            </p>
           </div>
         </div>
       </div>
