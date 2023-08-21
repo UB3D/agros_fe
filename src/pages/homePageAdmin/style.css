@@ -1,0 +1,53 @@
+body {
+  background-color: #f8f8f8;
+}
+.p {
+  margin-top: 110px;
+}
+
+.btns {
+  justify-content: center !important;
+}
+
+.x {
+  position: absolute;
+  top: -25px;
+  right: -10px;
+}
+
+.cerita-title {
+  margin-left: 110px;
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 576px) {
+  .p {
+    width: 275px !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+  }
+  .cerita-title {
+    margin-left: 9px;
+    font-size: 17px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .p {
+    width: 420px !important;
+    text-align: center !important;
+    /* margin-left: auto !important; */
+    /* margin-right: auto !important; */
+    margin-top: 20px !important;
+  }
+  .cerita-title {
+    margin-left: 5px;
+    font-size: 28px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .cerita-title {
+    margin-left: 9px;
+    font-size: 38px;
+  }
+}

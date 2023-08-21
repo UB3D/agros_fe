@@ -1,0 +1,35 @@
+.nav-text {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+}
+
+.nav-right {
+  margin-right: 4rem;
+}
+.navbar-brand {
+  margin-left: 4rem !important;
+  padding: 0 !important;
+  justify-content: start !important;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-logo {
+    width: 80px;
+    height: 20px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .navbar-brand {
+    margin-left: 1px !important;
+    padding: 0 !important;
+    justify-content: start !important;
+  }
+  .ms-5 {
+    margin-left: 1px !important;
+  }
+  .nav-right {
+    margin-right: 3px;
+  }
+}

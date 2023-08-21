@@ -1,0 +1,53 @@
+.cerita-title {
+  margin-left: 110px;
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 576px) {
+  .cerita-title {
+    margin-left: 9px;
+    font-size: 17px;
+  }
+  .s3 {
+    width: 250px !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+  }
+  .w2 {
+    width: 275px !important;
+    justify-content: start !important;
+    padding: 0 !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .cerita-title {
+    margin-left: 5px;
+    font-size: 28px;
+  }
+  .w1 {
+    width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  .w2 {
+    width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  .s3 {
+    width: 420px !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 10px !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .cerita-title {
+    margin-left: 9px;
+    font-size: 38px;
+  }
+}
